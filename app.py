@@ -142,13 +142,22 @@ if model:
         if st.button("🚀 RUN AI DIAGNOSTIC"):
             try:
                 feature_list = [
-                    0, 1 if gender == "Male" else 0, age, encode_input("City", city),
-                    encode_input("Profession", "Student"), academic_pressure, cgpa,
-                    study_sat, sleep, encode_input("Dietary Habits", diet),
-                    encode_input("Degree", degree), 1 if suicidal == "Yes" else 0,
-                    study_hours, fin_stress, 1 if fam_history == "Yes" else 0
+                    1 if gender == "Male" else 0,
+                    age,
+                    encode_input("City", city),
+                    encode_input("Profession", "Student"),
+                    academic_pressure,
+                    cgpa,
+                    study_sat,
+                    sleep,
+                    encode_input("Dietary Habits", diet),
+                    encode_input("Degree", degree),
+                    1 if suicidal == "Yes" else 0,
+                    study_hours,
+                    fin_stress,
+                    1 if fam_history == "Yes" else 0,
                 ]
-
+                
                 input_array = np.array(feature_list).reshape(1, -1)
                 prediction = model.predict(input_array)
 
